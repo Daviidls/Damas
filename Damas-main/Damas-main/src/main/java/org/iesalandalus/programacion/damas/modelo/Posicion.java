@@ -51,8 +51,6 @@ public class Posicion {
         return String.format("Posicion[Fila=%s, Columna=%s]", this.fila, this.columna);
     }
 }
-public String toString() {
-    return String.format("fila=%d, columna=%c", fila, columna);
-}
+
 
 
