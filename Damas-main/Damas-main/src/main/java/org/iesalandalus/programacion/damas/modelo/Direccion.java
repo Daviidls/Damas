@@ -13,6 +13,10 @@ public enum Direccion {
         this.cadenaAMostrar = cadenaAMostrar;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Direccion{" +
+                "cadenaAMostrar='" + cadenaAMostrar + '\'' +
+                '}';
+    }
 }
