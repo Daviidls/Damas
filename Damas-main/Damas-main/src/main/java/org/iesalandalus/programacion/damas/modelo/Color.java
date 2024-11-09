@@ -5,5 +5,10 @@ public enum Color {
     NEGRO("Blanco");
 
     private String cadenaAMostrar;
+
+    private Color(String cadenaAMostrar)
+    {
+        this.cadenaAMostrar = cadenaAMostrar;
+    }
     
 }
