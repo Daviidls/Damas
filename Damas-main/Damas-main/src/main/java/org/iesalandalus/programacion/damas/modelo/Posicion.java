@@ -9,6 +9,11 @@ public class Posicion {
         setColumna(columna);
         setFila(fila);
     }
+    public Posicion (Posicion posicion){
+
+        fila= posicion.fila;
+        columna= posicion.columna;
+    }
 
     private void setFila(int fila)
     {
