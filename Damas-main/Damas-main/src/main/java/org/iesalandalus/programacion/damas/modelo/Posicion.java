@@ -27,6 +27,10 @@ public class Posicion {
     public int getFila(){
         return fila;
     }
+    public char getColumna()
+    {
+        return columna;
+    }
     private void setColumna(char columna)
     {
         if (columna<'a' || columna> 'h'){ //Comprobación para que no se genere una dama en una columna erronea.
