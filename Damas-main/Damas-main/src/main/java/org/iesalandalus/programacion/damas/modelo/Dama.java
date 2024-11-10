@@ -109,6 +109,7 @@ La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67
         if (posicion.getFila()>8 || posicion.getFila()<1)
         {
             throw new OperationNotSupportedException("Este movimiento se sale fuera del tablero");
+
         }
     }
 
