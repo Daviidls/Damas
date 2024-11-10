@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.damas.modelo;
 
+import javax.naming.OperationNotSupportedException;
 import java.util.Objects;
 
 public class Dama {
@@ -56,7 +57,8 @@ public class Dama {
 
         char columna;
         if (fila == 1 || fila == 3 || fila == 5 || fila == 7) {
-
+/*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
+La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
             columna = (char) ('A' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
         } else {
 
@@ -82,5 +84,36 @@ public class Dama {
     }
 
 
+    public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException
+    {
+        if(direccion==null)
+        {
+            throw new IllegalArgumentException("La direccion no puede ser nula");
+        }
+        if (!esDamaEspecial)
+        {
+            if (pasos!=1)
+            {
+              throw new IllegalArgumentException("Las damas normales solo pueden moverse 1 paso hacia su sentido correcto");
+            }
+            if (color==Color.BLANCO && !(direccion==Direccion.NORESTE || direccion==Direccion.NOROESTE) || color==Color.NEGRO && !(direccion==Direccion.SURESTE || direccion==Direccion.SUROESTE))
+            {
+               throw new IllegalArgumentException("Las damas blancas solo puede moverse hacia el norte y las damas negras hacia el sur");
+            }
 
+        }
+        if (color==Color.BLANCO && (posicion.getFila()==8) || color==Color.NEGRO && (posicion.getFila()==1))
+        {
+            esDamaEspecial=true;
+        }
+        if (posicion.getFila()>8 || posicion.getFila()<1)
+        {
+            throw new OperationNotSupportedException("Este movimiento se sale fuera del tablero");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Dama [color=%s,posicion=%s]",this.color,this.posicion);
+    }
 }

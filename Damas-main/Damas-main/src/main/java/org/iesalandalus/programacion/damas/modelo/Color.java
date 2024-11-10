@@ -2,7 +2,7 @@ package org.iesalandalus.programacion.damas.modelo;
 
 public enum Color {
     BLANCO("Blanco"),
-    NEGRO("Blanco");
+    NEGRO("Negro");
 
     private String cadenaAMostrar;
 

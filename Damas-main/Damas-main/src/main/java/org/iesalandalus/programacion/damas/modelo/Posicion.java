@@ -19,7 +19,7 @@ public class Posicion {
 
     private void setFila(int fila)
     {
-        if (fila>8 || fila<1){ //Comprobación para que no se genere una dama en una fila erronea.
+        if (fila>8 || fila<1){ //Comprobación para que no se pase una dama a fila erronea.
             throw new IllegalArgumentException("El valor de la fila no puede ser menor de 1 y mayor de 8");
         }
             this.fila=fila;
