@@ -10,7 +10,7 @@
 <p>En la primera imagen puedes observar cuál es el posicionamiento inicial válido para las damas dependiendo de su color. En la segunda imagen puedes apreciar cuáles son <strong>los movimientos válidos para una dama, siempre hacia adelante, en diagonal y solamente una casilla</strong>.</p>
 <p>Deberás controlar que el movimiento de una dama se realice correctamente siguiendo las reglas descritas anteriormente y además no estará permitido realizar movimientos que puedan sacar a la pieza fuera del tablero.</p>
 <p>Además, <strong>la dama adquiere unos movimientos especiales cuando consigue llegar el extremo contrario del tablero. </strong>En ese momento, la dama puede moverse hacia adelante y hacia atrás en el tablero, siempre en diagonal y todas las casillas que desee, siempre y cuando no se salga del tablero.</p>
-<div style="font-size: xx-small;" align="center"><img src="src/main/resources/jugar-05-A.png" width="222" height="222" alt="Dama" /><img src="src/main/resources/jugar-05-C.png" width="222" height="222" alt="Movimiento Dama" /><br />
+<div style="font-size: xx-small;" align="center"><img src="src/main/resources/jugar-05-A.png" width="222" height="222" alt="ies.alandalus.programacion.damas.modelo.Dama" /><img src="src/main/resources/jugar-05-C.png" width="222" height="222" alt="Movimiento ies.alandalus.programacion.damas.modelo.Dama" /><br />
 <p style="font-size: xx-small;"><span>Imágenes obtenidas de la web: <a href="https://www.hagaloustedmismo.cl/proyectos/como-hacer-y-jugar-un-juego-de-damas.html" target="_blank" rel="noopener">www.hagaloustedmismo.cl</a><br /></span></p>
 </div>
 <p>He subido a GitHub un esqueleto de proyecto gradle que ya lleva incluidos todos los test necesarios que el programa debe pasar y las dependencias, entre ellas la de la librería <code>Entrada</code>. La <abbr title="Uniform Resource Locator">URL</abbr> del repositorio es la siguiente: <a href="https://github.com/jma982/Damas" title="Acceder al repositorio GitHub con el esqueleto de la aplicación (Se abre en una nueva ventana)." target="_blank" rel="noopener">repositorio GitHub con el esqueleto del proyecto</a>.</p>
@@ -21,32 +21,32 @@
 <li>Lo primero que debes hacer es un <code><strong>fork</strong></code> del repositorio donde he colocado el esqueleto de este proyecto.</li>
 <li>Clona tu repositorio remoto recién copiado en GitHub a un repositorio local que será donde irás realizando lo que a continuación se te pide. Modifica el archivo <code>README.md</code> para que incluya tu nombre en el apartado "Alumno". Realiza tu primer commit.</li>
 </ol>
-<p><strong class="resaltado_inline">Enumerado Direccion (CE 2.B)<br /></strong></p>
+<p><strong class="resaltado_inline">Enumerado ies.alandalus.programacion.damas.modelo.Direccion (CE 2.B)<br /></strong></p>
 <ol style="list-style-type: decimal;" class=" auto-numbered">
-<li>Crea un enumerado llamado <code>Direccion</code> que contenga los literales: <code>NORESTE</code>,<code> SURESTE</code>, <code>SUROESTE</code>, <code>NOROESTE</code>. Los literales estarán parametrizados y a cada uno le pasaremos la representación en cadena de los mismos: "Noreste", "Sureste", "Noroeste" o "Suroeste". Realiza un commit.</li>
+<li>Crea un enumerado llamado <code>ies.alandalus.programacion.damas.modelo.Direccion</code> que contenga los literales: <code>NORESTE</code>,<code> SURESTE</code>, <code>SUROESTE</code>, <code>NOROESTE</code>. Los literales estarán parametrizados y a cada uno le pasaremos la representación en cadena de los mismos: "Noreste", "Sureste", "Noroeste" o "Suroeste". Realiza un commit.</li>
 <li>Crea el atributo cadenaAMostrar (String). Realiza un commit.</li>
 <li>Crea el constructor con la visibilidad adecuada, que almacenará en el atributo anterior la cadena que se le pase por parámetro.  Realiza un commit.</li>
 <li>Crea el método toString que devolverá la representación en forma de cadena del literal. Realiza un commit.</li>
 </ol>
-<p><strong class="resaltado_inline">Enumerado Color (CE 2.B)<br /></strong></p>
+<p><strong class="resaltado_inline">Enumerado ies.alandalus.programacion.damas.modelo.Color (CE 2.B)<br /></strong></p>
 <ol class=" auto-numbered" style="list-style-type: decimal;">
-<li>Crea un enumerado llamado <code>Color</code> que contenga los literales: <code>BLANCO</code> y <code>NEGRO</code>. Los literales estarán parametrizados y a cada uno le pasaremos la representación en cadena de los mismos: Blanco o Negro. Realiza un commit.</li>
+<li>Crea un enumerado llamado <code>ies.alandalus.programacion.damas.modelo.Color</code> que contenga los literales: <code>BLANCO</code> y <code>NEGRO</code>. Los literales estarán parametrizados y a cada uno le pasaremos la representación en cadena de los mismos: Blanco o Negro. Realiza un commit.</li>
 <li>Crea el atributo <code>cadenaAMostrar</code> (String). Realiza un commit.</li>
 <li>Crea el <code><strong>constructor</strong></code> con la visibilidad adecuada, que almacenará en el atributo anterior la cadena que se le pase por parámetro.  Realiza un commit.</li>
 <li>Crea el método <code>toString</code> que devolverá la representación en forma de cadena del literal. Realiza un commit.</li>
 </ol>
-<p><strong class="resaltado_inline">Clase Posicion (CE 2.D)<br /></strong></p>
+<p><strong class="resaltado_inline">Clase ies.alandalus.programacion.damas.modelo.Posicion (CE 2.D)<br /></strong></p>
 <ol class=" auto-numbered" style="list-style-type: decimal;">
-<li>Crea la clase <code>Posicion</code>. Crea los atributos <code>fila</code> (int) y <code>columna</code> (char) con la visibilidad adecuada. Realiza un commit.</li>
+<li>Crea la clase <code>ies.alandalus.programacion.damas.modelo.Posicion</code>. Crea los atributos <code>fila</code> (int) y <code>columna</code> (char) con la visibilidad adecuada. Realiza un commit.</li>
 <li>Crea los métodos <code>get</code> y <code>set</code> para los atributos. Recuerda que para el método <code>set</code> se debe tener en cuenta que los valores indicados sean correctos <strong>(las filas van del 1 al 8 -ambos inclusive- y las columnas de la 'a' a la 'h' -ambas inclusive-)</strong> y si no, que se lance una excepción del tipo <code>IllegalArgumentException</code> con el mensaje adecuado. En caso de que la posición no sea la correcta no deben modificarse los atributos de la dama. Realiza un commit.</li>
 <li>Crea un constructor para esta clase que acepte como parámetros la <code>fila</code> y la <code>columna</code> y que los asigne a los atributos si son correctos. Si no son correctos debe lanzar una excepción del tipo <code>IllegalArgumentException</code> con el mensaje adecuado. Para ello utiliza los métodos <code>set</code> anteriormente creados. Realiza un commit.</li>
 <li>Crea el constructor copia para esta clase. Realiza un commit.</li>
 <li>Crea los métodos <code>equals</code> y <code>hashCode</code> para esta clase. Realiza un commit.</li>
 <li>Crea el método <code>toString</code> que devolverá un <code>String</code> y será la representación de la fila y la columna de forma adecuada (<code><strong>fila=valorFila, columna=valorColumna</strong></code>). Realiza un commit.</li>
 </ol>
-<p><strong class="resaltado_inline">Clase Dama (CE 2.D)<br /></strong></p>
+<p><strong class="resaltado_inline">Clase ies.alandalus.programacion.damas.modelo.Dama (CE 2.D)<br /></strong></p>
 <ol class=" auto-numbered" style="list-style-type: decimal;">
-<li>Crea la clase <code>Dama</code> cuyos atributos serán un <code>color</code> (del tipo enumerado <code>Color</code>), una <code>posicion</code> (de la clase <code>Posicion</code>) y un <code><strong>esDamaEspecial</strong></code> (del tipo booleano), con la visibilidad adecuada. Realiza un commit.</li>
+<li>Crea la clase <code>ies.alandalus.programacion.damas.modelo.Dama</code> cuyos atributos serán un <code>color</code> (del tipo enumerado <code>ies.alandalus.programacion.damas.modelo.Color</code>), una <code>posicion</code> (de la clase <code>ies.alandalus.programacion.damas.modelo.Posicion</code>) y un <code><strong>esDamaEspecial</strong></code> (del tipo booleano), con la visibilidad adecuada. Realiza un commit.</li>
 <li>Crea los métodos <code>get</code> y <code>set</code> para cada atributo con la visibilidad adecuada. Los métodos <code>set</code> siempre comprobarán la validez de los parámetros pasados y si no son correctos deberá lanzar la excepción adecuada con el mensaje adecuado. Realiza un commit.</li>
 <li>Crea un constructor por defecto para esta clase que cree una dama blanca en la posición correcta y aleatoria del tablero. La posición inicial deberá estar en alguna casilla negra dentro de las filas 1, 2 o 3. Realiza un commit.</li>
 <li>Crea un constructor para la clase que acepte como parámetro el color y que creará una dama de dicho color cuya posición inicial estará en una casilla negra de alguna de las filas 1,2 o 3 (si es blanca) o en alguna de las filas 6, 7 y 8 (si es negra). Realiza un commit.
@@ -54,7 +54,7 @@
 <li>Para obtener la posición inicial de manera aleatoria, implementa el método <code>crearPosicionInicial</code>.</li>
 </ol>
 </li>
-<li>Crea el método <code>mover</code> que acepte como parámetros una <code>Direccion y el número de pasos que se moverá</code>. Deberás tener en cuenta las siguientes restricciones: Realiza un commit.<br />
+<li>Crea el método <code>mover</code> que acepte como parámetros una <code>ies.alandalus.programacion.damas.modelo.Direccion y el número de pasos que se moverá</code>. Deberás tener en cuenta las siguientes restricciones: Realiza un commit.<br />
 <ol style="list-style-type: decimal;">
 <li>La dirección no puede ser nula o de lo contrario debe lanzar una excepción adecuada (<code>NullPointerException</code> o <code>IllegalArgumentException</code>) con el mensaje adecuado.
 <ol style="list-style-type: decimal;">
@@ -72,9 +72,9 @@
 </li>
 <li>Crea el método <code>toString</code> que devuelva un <code>String</code> que será la representación de dicho objeto (color y posición). Realiza un commit.</li>
 </ol>
-<p><strong class="resaltado_inline">Clase Consola (CE 2.E)<br /></strong></p>
+<p><strong class="resaltado_inline">Clase ies.alandalus.programacion.damas.Consola (CE 2.E)<br /></strong></p>
 <ol style="list-style-type: decimal;" class=" auto-numbered">
-<li>Crea la clase de utilidades <code>Consola</code>. Realiza un commit.</li>
+<li>Crea la clase de utilidades <code>ies.alandalus.programacion.damas.Consola</code>. Realiza un commit.</li>
 <li>Crea el constructor para esta clase con su visibilidad adecuada, teniendo en cuenta que será una clase de utilidades que sólo contendrá métodos estáticos. Realiza un commit.</li>
 <li>Crea el método <code>mostrarMenu</code> que mostrará el menú con las opciones de nuestra aplicación: crear dama por defecto, crear dama eligiendo el color, mover y salir. Realiza un commit.</li>
 <li>Crea el método <code>elegirOpcionMenu</code> que mostrará un mensaje para que elijamos una opción del menú anteriormente creado y nos pedirá que introduzcamos por teclado la opción hasta que ésta sea valida. Devolverá la opción elegida. Realiza un commit.</li>
@@ -84,7 +84,7 @@
 <li>Crea el método <code><strong>elegirPasos</strong></code> que nos pedirá que introduzcamos por teclado el número de casillas, el cual deberá ser un número entero positivo mayor o igual que 1.</li>
 <li>Crea el método <code>despedirse</code> que mostrará un mensaje de despedida al salir de nuestra aplicación.</li>
 </ol>
-<p><strong class="resaltado_inline">Clase MainApp (CE 2.G)<br /></strong></p>
+<p><strong class="resaltado_inline">Clase ies.alandalus.programacion.damas.MainApp (CE 2.G)<br /></strong></p>
 <ol class=" auto-numbered" style="list-style-type: decimal;">
 <li>Crea el atributo de clase <code><strong>dama</strong></code>. Realiza un commit.</li>
 <li>Crea el método <code>ejecutarOpcion</code> que dependiendo de la opción pasada como parámetro, actuará en consecuencia. Realiza un commit.</li>
