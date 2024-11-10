@@ -23,28 +23,29 @@ public class Consola {
     }
 
     public static int elegirOpcionMenu() {
-        System.out.print("Elige una opcion");
-        int opcion = -1;
-        opcion = Entrada.entero();
-        switch (opcion) {
-            case 1 -> {
-                new Dama();
+
+            System.out.print("Elige una opcion");
+            int opcion = -1;
+            opcion = Entrada.entero();
+            switch (opcion) {
+                case 1 -> {
+                    new Dama();
+                }
+                case 2 -> {
+                    new Dama(elegirColor());
+                }
+                case 3 -> {
+                    elegirPasos();
+                    elegirDireccion();
+                }
+                case 4 -> {
+                    salir();
+                }
+                default -> {
+                    System.out.println("Debes elegir una opción existente");
+                }
             }
-            case 2 -> {
-                new Dama(elegirColor());
-            }
-            case 3->{
-                elegirPasos();
-                elegirDireccion();
-            }
-            case 4->{
-                salir();
-            }
-            default->{
-                System.out.println("Debes elegir una opción existente");
-            }
-        }
-        return opcion;
+            return opcion;
     }
 
     public static Color elegirColor() {
