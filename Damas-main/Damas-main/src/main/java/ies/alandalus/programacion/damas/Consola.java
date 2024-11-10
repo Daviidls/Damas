@@ -31,9 +31,20 @@ public class Consola {
                 new Dama();
             }
             case 2 -> {
-                new
+                new Dama(elegirColor());
+            }
+            case 3->{
+                elegirPasos();
+                elegirDireccion();
+            }
+            case 4->{
+                salir();
+            }
+            default->{
+                System.out.println("Debes elegir una opción existente");
             }
         }
+        return opcion;
     }
 
     public static Color elegirColor() {
@@ -59,5 +70,60 @@ public class Consola {
         } while (opcion != 1 || opcion != 2);
         return color;
     }
+    public static void mostrarMenuDirecciones(){
+        System.out.println("Noreste");
+        System.out.println("Noroeste");
+        System.out.println("Sureste");
+        System.out.println("Suroeste");
+    }
+    public static int elegirPasos()
+    {
+        int pasos=0;
+        boolean esDamaespecial=false;
+        if(!esDamaespecial) {
+            do {
+                System.out.println("Elige los pasos que quieres dar");
+                pasos = Entrada.entero();
+            } while (pasos!=1);
+        }
+        return pasos;
+    }
+    public static Direccion elegirDireccion()
+    {
+        int opcion;
+        do{
+            System.out.println("Elige una direccion");
+            mostrarMenuDirecciones();
+            opcion=Entrada.entero();
+            Direccion direccion=null;
+            switch (opcion) {
+                case 1 -> {
+                    direccion = Direccion.NOROESTE;
+                }
+                case 2 -> {
+                    direccion = Direccion.NORESTE;
+                }
 
+                case 3-> {
+                    direccion = Direccion.SUROESTE;
+                }
+                case 4-> {
+                    direccion = Direccion.SURESTE;
+                }
+                default->{
+                    System.out.println("La direccion no puede ser nula");
+                }
+            }
+            return direccion;
+        }while(opcion<1 || opcion>4);
+
+    }
+    public static void salir(){
+        System.out.println("***************** VUELVE PRONTO *****************");
+    }
 }
+
+
+
+
+
