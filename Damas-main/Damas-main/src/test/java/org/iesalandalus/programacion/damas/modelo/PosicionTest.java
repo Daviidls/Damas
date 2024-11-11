@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import ies.alandalus.programacion.damas.modelo.Posicion;
 import org.junit.jupiter.api.Test;
 
 class PosicionTest {

@@ -4,40 +4,62 @@ import javax.naming.OperationNotSupportedException;
 import java.util.Objects;
 
 public class Dama {
+
     private Color color;
     private Posicion posicion;
     private boolean esDamaEspecial;
 
    public Dama() {
-       this.color = getColor();
+    color=Color.BLANCO;
+    posicion= new Posicion(crearPosicionInicial());
+    esDamaEspecial=false;
+   }
+   public Dama(Color color) {
+       if (color==Color.BLANCO){
+           int filaDama=(int) (Math.random()*3)+1;
+           char columnaDama=0;
+           if (filaDama == 1 || filaDama == 3 ) {
+            /*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
+            La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
+               columnaDama = (char) ('a' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
+           } else if (filaDama==2) {
 
-       if (color == Color.BLANCO)
-       {
-           this.posicion = crearPosicionInicial(1, 3); //ies.alandalus.programacion.damas.modelo.Posicion inicial para las damas blancas.
-       } else if (color == Color.NEGRO)
-       {
-           this.posicion = crearPosicionInicial(6, 8);//ies.alandalus.programacion.damas.modelo.Posicion inicial para las damas negras.
+               columnaDama = (char) ('a' + (Math.random() * 4) * 2 + 1);  // Aleatorio entre B, D, F, H)
+           }
+           setColor(color);
+           posicion= new Posicion(filaDama,columnaDama);
+           esDamaEspecial=false;
        }
-       this.esDamaEspecial= false; //Ahora mismo la dama no llegó al final del tablero por lo tanto no es especial.
+       if (color==Color.NEGRO){
+           int filaDama=(int) (Math.random()*3)+6;
+           char columnaDama=0;
+           if (filaDama == 6 || filaDama == 8 ) {
+            /*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
+            La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
+               columnaDama = (char) ('a' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
+           } else if (filaDama==7) {
 
+               columnaDama = (char) ('a' + (Math.random() * 4) * 2 + 1);  // Aleatorio entre B, D, F, H)
+           }
+           setColor(color);
+           posicion= new Posicion(filaDama,columnaDama);
+           esDamaEspecial=false;
+       }
 
    }
-   public Dama(Color color)
-   {
-       this.color= Color.BLANCO; //La dama sera blanca.
-       this.posicion= crearPosicionInicialblanca(); //Genera una posicion inicial en este caso siempre del color blanco.
-       this.esDamaEspecial = false;//Al principio no es dama especial.
-   }
+
+    private void  setColor(Color color){
+       if (color!=Color.BLANCO && color!=Color.NEGRO){
+           throw new IllegalArgumentException("El color no es el esperado");
+       }
+       this.color=color;
+    }
+
+
     public Color getColor()
     {
         return color;
     }
-
-    private void setColor(Color color)
-    {
-        this.color=Objects.requireNonNull(color,"El color no puede ser diferente de Blanco o Negro");
-    }
-
 
     public Posicion getPosicion()
     {
@@ -47,74 +69,115 @@ public class Dama {
 
     public void setPosicion(Posicion posicion)
     {
-        this.posicion=Objects.requireNonNull(posicion,"La posición no puede ser nula");
+        if (posicion==null){
+            throw new IllegalArgumentException("la posicion no puede ser nula");
+        }
+        this.posicion=posicion;
     }
 
 
-    private Posicion crearPosicionInicial(int filaMin, int filaMax)//Esto para despues en el metodo ies.alandalus.programacion.damas.modelo.Dama poner marcar hasta que fila llega.
+    private Posicion crearPosicionInicial()
     {
-        int fila = (int) (Math.random() * 8) + 1;  // Aleatorio entre 1, 2, 3
 
-        char columna;
-        if (fila == 1 || fila == 3 || fila == 5 || fila == 7) {
+        if (color==Color.BLANCO){
+            int fila = (int) (Math.random() * 3) + 1;  // Aleatorio entre 1-3
+            char columna= 0;
+            if (fila == 1 || fila == 3 ) {
 /*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
 La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
-            columna = (char) ('A' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
-        } else {
+            columna = (char) ('a' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
+            } else if (fila==2){
 
-            columna = (char) ('A' + (Math.random() * 4) * 2 + 1);  // Aleatorio entre B, D, F, H
+            columna = (char) ('a' + (Math.random() * 4) * 2 + 1);  // Aleatorio entre B, D, F, H
+         }
+            this.posicion=new Posicion(fila, columna);
         }
-        return new Posicion(fila, columna);
-    }
+        if (color==Color.NEGRO){
+            int fila = (int) (Math.random() *3 )+6;  // Aleatorio entre 6-8
+            char columna = 0;
+            if (fila == 6 || fila == 8 ) {
+/*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
+La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
+                columna = (char) ('a' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
+            } else if (fila==7){
 
-    private Posicion crearPosicionInicialblanca()//Este metodo sera es el punto 3 de la tarea para crear una dama blanca.
-    {
-
-        int fila = (int) (Math.random() * 3) + 1;  // Aleatorio entre 1, 2, 3
-
-        char columna;
-        if (fila == 1 || fila == 3) {
-
-            columna = (char) ('A' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
-        } else {
-
-            columna = (char) ('A' + (Math.random() * 4) * 2 + 1);  // Aleatorio entre B, D, F, H
-        }
-        return new Posicion(fila, columna);
-    }
-
-
-    public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException
-    {
-        if(direccion==null)
-        {
-            throw new IllegalArgumentException("La direccion no puede ser nula");
-        }
-        if (!esDamaEspecial)
-        {
-            if (pasos!=1)
-            {
-              throw new IllegalArgumentException("Las damas normales solo pueden moverse 1 paso hacia su sentido correcto");
+                columna = (char) ('a' + (Math.random() * 4) * 2 + 1);  // Aleatorio entre B, D, F, H
             }
-            if (color== Color.BLANCO && !(direccion== Direccion.NORESTE || direccion== Direccion.NOROESTE) || color== Color.NEGRO && !(direccion== Direccion.SURESTE || direccion== Direccion.SUROESTE))
-            {
-               throw new IllegalArgumentException("Las damas blancas solo puede moverse hacia el norte y las damas negras hacia el sur");
+            this.posicion=new Posicion(fila,columna);
+        }
+            return posicion;
+       }
+
+       public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {   //Verificar que la direccion no sea nula
+           int nuevaFila= posicion.getFila();
+           int nuevaColumna= posicion.getColumna();
+
+                if (direccion== null){
+                throw new IllegalArgumentException("La direccion no puede ser nula");
+        }
+            //Verificar que los pasos sean validos.
+
+            if (!esDamaEspecial) {
+                if (pasos!=1){
+                    throw new IllegalArgumentException("Los pasos tienen que ser igual a 1");
+                }
+                if (color == Color.BLANCO) {
+                    // Dama blanca solo puede moverse hacia Noreste o Noroeste
+                    if (direccion != Direccion.NORESTE && direccion != Direccion.NOROESTE) {
+                        throw new OperationNotSupportedException("La dama blanca solo puede moverse Noreste o Noroeste.");
+                    }
+                } else if (color == Color.NEGRO) {
+                    // Dama negra solo puede moverse hacia Sureste o Suroeste
+                    if (direccion != Direccion.SURESTE && direccion != Direccion.SUROESTE) {
+                        throw new OperationNotSupportedException("La dama negra solo puede moverse Sureste o Suroeste.");
+                    }
+                }
             }
 
+
+
+            switch (direccion){
+                case NORESTE -> {
+                    nuevaFila+=pasos;
+                    nuevaColumna+=pasos;
+                    break;
+                }
+                case SURESTE -> {
+                    nuevaFila -= pasos;
+                    nuevaColumna+=pasos;
+                    break;
+                }
+                case SUROESTE ->{
+                    nuevaFila -= pasos;
+                    nuevaColumna -= pasos;
+                    break;
+                }
+                case NOROESTE ->{
+                    nuevaFila += pasos;
+                    nuevaColumna -= pasos;
+                    break;
+                }
+                default -> {
+                    throw new IllegalArgumentException("Direccion desconocida");
+                }
+            }
+            //Verificar si el movimiento es valido dentro del tablero
+            if (nuevaFila < 1 || nuevaFila > 8 || nuevaColumna < 'a' || nuevaColumna > 'h') {
+                throw new OperationNotSupportedException("El movimiento esta fuera del tablero");
         }
-        if (color== Color.BLANCO && (posicion.getFila()==8) || color== Color.NEGRO && (posicion.getFila()==1))
-        {
-            esDamaEspecial=true;
-        }
-        if (posicion.getFila()>8 || posicion.getFila()<1)
-        {
-            throw new OperationNotSupportedException("Este movimiento se sale fuera del tablero");
+            this.posicion = new Posicion(nuevaFila, (char) nuevaColumna);
+            //Verificar si la dama se convierte en dama especial.
+            if ((color==Color.BLANCO && nuevaFila==8 ) || (color== Color.NEGRO && nuevaFila== 1)){
+                esDamaEspecial= true;
+            }
+
 
         }
-    }
-
-    @Override
+        @Override
     public String toString() {
-        return String.format("ies.alandalus.programacion.damas.modelo.Dama [color=%s,posicion=%s]",this.color,this.posicion);
+        return String.format("Dama [color=%s,posicion=%s especial=%s]",this.color,this.posicion, this.esDamaEspecial);
     }
+
+
 }
+

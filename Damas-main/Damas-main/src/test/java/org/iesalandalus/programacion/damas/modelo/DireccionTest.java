@@ -2,6 +2,7 @@ package org.iesalandalus.programacion.damas.modelo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import ies.alandalus.programacion.damas.modelo.Direccion;
 import org.junit.jupiter.api.Test;
 
 

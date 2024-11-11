@@ -6,13 +6,15 @@ public class Posicion {
     private int fila;
     private char columna;
 
-    public Posicion(int fila, char columna) //Contructor que acepte los parametros columna y fila.
+    public Posicion(int fila, char columna)  //Contructor que acepte los parametros columna y fila.
     {
         setColumna(columna);
         setFila(fila);
     }
     public Posicion (Posicion posicion){
-
+        if (posicion==null){
+            throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
+        }
         fila= posicion.fila;
         columna= posicion.columna;
     }
@@ -20,7 +22,7 @@ public class Posicion {
     private void setFila(int fila)
     {
         if (fila>8 || fila<1){ //Comprobación para que no se pase una dama a fila erronea.
-            throw new IllegalArgumentException("El valor de la fila no puede ser menor de 1 y mayor de 8");
+            throw new IllegalArgumentException("ERROR: Fila no válida.");
         }
             this.fila=fila;
     }
@@ -31,13 +33,15 @@ public class Posicion {
     {
         return columna;
     }
-    private void setColumna(char columna)
-    {
-        if (columna<'a' || columna> 'h'){ //Comprobación para que no se genere una dama en una columna erronea.
-            throw new IllegalArgumentException("El valor de la columna tiene que estar entre 'a' y 'h' ");
+    private void setColumna(char columna){
+        if (columna<'a' || columna>'h'){
+            throw new IllegalArgumentException("ERROR: Columna no válida.");
         }
         this.columna=columna;
     }
+
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -52,7 +56,7 @@ public class Posicion {
         return Objects.hash(fila, columna);
     }
     public String toString(){
-        return String.format("ies.alandalus.programacion.damas.modelo.Posicion[Fila=%s, Columna=%s]", this.fila, this.columna);
+        return String.format("fila=%s, columna=%s", this.fila, this.columna);
     }
 }
 
