@@ -15,12 +15,17 @@ public class Dama {
     esDamaEspecial=false;
    }
    public Dama(Color color) {
-       if (color==Color.BLANCO){
+
+        setColor(color);
+        posicion= new Posicion(crearPosicionInicial());
+        esDamaEspecial=false;
+
+          /* if (color==Color.BLANCO){
            int filaDama=(int) (Math.random()*3)+1;
            char columnaDama=0;
            if (filaDama == 1 || filaDama == 3 ) {
             /*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
-            La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
+            La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.
                columnaDama = (char) ('a' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
            } else if (filaDama==2) {
 
@@ -35,7 +40,7 @@ public class Dama {
            char columnaDama=0;
            if (filaDama == 6 || filaDama == 8 ) {
             /*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
-            La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
+            La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.
                columnaDama = (char) ('a' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
            } else if (filaDama==7) {
 
@@ -44,7 +49,7 @@ public class Dama {
            setColor(color);
            posicion= new Posicion(filaDama,columnaDama);
            esDamaEspecial=false;
-       }
+       }*/
 
    }
 
@@ -78,34 +83,35 @@ public class Dama {
 
     private Posicion crearPosicionInicial()
     {
+        char columna= 0;
+        int fila=0;
+            if (color==Color.BLANCO){
+             fila = (int) (Math.random() * 3) + 1;  // Aleatorio entre 1-3
 
-        if (color==Color.BLANCO){
-            int fila = (int) (Math.random() * 3) + 1;  // Aleatorio entre 1-3
-            char columna= 0;
             if (fila == 1 || fila == 3 ) {
-/*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
-La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
-            columna = (char) ('a' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
+    /*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
+    La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
+            columna = (char) ('a' + 2 * (int) (Math.random() * 4));  // Aleatorio entre A, C, E, G
             } else if (fila==2){
 
-            columna = (char) ('a' + (Math.random() * 4) * 2 + 1);  // Aleatorio entre B, D, F, H
+            columna = (char) ('b' + 2 * (int) (Math.random() * 4));  // Aleatorio entre B, D, F, H
          }
             this.posicion=new Posicion(fila, columna);
         }
         if (color==Color.NEGRO){
-            int fila = (int) (Math.random() *3 )+6;  // Aleatorio entre 6-8
-            char columna = 0;
+             fila = (int) (Math.random() *3 )+6;  // Aleatorio entre 6-8
+
             if (fila == 6 || fila == 8 ) {
-/*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
-La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
-                columna = (char) ('a' + (Math.random() * 4) * 2);  // Aleatorio entre A, C, E, G
+    /*El tema de la 'A' es una formula que encontré en internet para poder incluir las letras, segun lo que me he informado
+    La letra 'A' tiene un valor de 65 y con ese valor se va sumando por ejemplo a 67 que es el valor de C y asi con todas la demas letras.*/
+                columna = (char) ('b' + 2 * (int) (Math.random() * 4));  // Aleatorio entre A, C, E, G
             } else if (fila==7){
 
-                columna = (char) ('a' + (Math.random() * 4) * 2 + 1);  // Aleatorio entre B, D, F, H
+                columna = (char) ('a' + 2 * (int) (Math.random() * 4));  // Aleatorio entre B, D, F, H
             }
-            this.posicion=new Posicion(fila,columna);
+
         }
-            return posicion;
+            return this.posicion=new Posicion(fila,columna);
        }
 
        public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {   //Verificar que la direccion no sea nula

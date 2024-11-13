@@ -17,24 +17,28 @@ public class Consola {
     }
 
     public static void mostrarMenu() {//Puse Menú con acento pero cuando inicio el MainApp la "Ú" me sale con un simbolo y lo deje sin acento.
-        System.out.println("Menu de opciones:");
-        System.out.println("1.Crear dama por defecto.");
-        System.out.println("2.Crear dama eligiendo color.");
-        System.out.println("3.Mover.");
-        System.out.println("4.Salir.");
+
+          System.out.println("Menu de opciones:");
+          System.out.println("1.Crear dama por defecto.");
+          System.out.println("2.Crear dama eligiendo color.");
+          System.out.println("3.Mover.");
+          System.out.println("4.Salir.");
+
+
+
     }
 
     public static int elegirOpcionMenu()  {
-        int opcion;
-
-        do {
+        int opcion=0;
+            do {
             System.out.println("Elija una opcion del menu");//Puse Menú con acento pero cuando inicio el MainApp la "Ú" me sale con un simbolo y lo deje sin acento.
             opcion=Entrada.entero();
-            if (opcion<1 || opcion>4){
+
+            if (opcion<1 || opcion>4);{ //Comprobar que la opción es correcta entre 1 y 4.
                 System.out.println("Elija una opcion correcta");
             }
-        }while(opcion<1 || opcion>4);
-        return opcion;
+            return opcion;
+            }while(opcion<1 || opcion>4);
     }
 
 
@@ -52,10 +56,11 @@ public class Consola {
             }else if (colorEleccion==2){
               color=Color.NEGRO;
             }
-            else{
+            else{ //Si se elige una opción diferente se pide de nuevo la opción.
                 System.out.println("Elección invalida,eliga una opcion entre 1)blanco o 2)negro.");
             }
         }while(color== null);
+
         return color;
     }
     public static void mostrarMenuDirecciones(){
@@ -68,17 +73,12 @@ public class Consola {
     }
     public static int elegirPasos()throws OperationNotSupportedException  {//metodo para elegir el número de pasos
         int pasos=0;
-        try {
+
             do {
                 System.out.println("Elija el numero de pasos");
                 pasos = Entrada.entero();
             } while (pasos < 1);
-
-        }catch (IllegalArgumentException e){
-            System.out.println(e.getMessage());
-
-        }
-        return pasos;
+            return pasos;
     }
 
 
@@ -117,7 +117,7 @@ public class Consola {
 
     }
     public static void salir(){
-        System.out.println("***************** VUELVE PRONTO *****************");
+        System.out.println("*********************** HASTA PRONTO ***********************");
     }
 }
 

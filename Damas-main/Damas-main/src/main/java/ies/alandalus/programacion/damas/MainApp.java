@@ -17,16 +17,18 @@ public class MainApp {
 
                 ejecutarOpcion(opcion);//Ejecutar la opcion elegida
 
-            } while (opcion != 4) ;//Repetimos el bucle hasta que no se elige la opción 4.
+            } while (opcion != 4); //Repetimos el bucle hasta que no se elige la opción 4.
 
         }
 
 
     private static void ejecutarOpcion(int opcion) throws Exception {
-        switch (opcion){
-            case 1->{
-                crearDamaDefecto();
-            }
+
+            switch (opcion){
+
+            case 1->crearDamaDefecto();
+
+
             case 2->{
                 crearDamaColor();
             }
@@ -41,6 +43,7 @@ public class MainApp {
             }
         }
     }
+
 
     private static void crearDamaDefecto()
     {
